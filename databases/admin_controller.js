@@ -43,17 +43,3 @@ export async function getAllPatternsCompany(req,res){
 
 }
 
-//DELETE company name & details  https://localhost:3000/api/patterns
-
-export async function deleteCompany(req,res){
-    const deleteid = req.params.deleteid;
-    testdetails.deleteOne({ _id: deleteid }, (err) => {
-        if (err) {
-          return res.status(500).json({status : "500 Internal Server Error"})
-        } else {
-          return res.status(200).json({"status":"Deleted"})
-        }
-      });
-
-
-}

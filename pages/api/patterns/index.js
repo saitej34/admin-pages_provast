@@ -16,7 +16,7 @@ export default function handler(req,res){
             break
         case "DELETE":
             deleteCompany(req,res);
-
+            break;
         default:
             res.send("Default");
             break;

@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Head from 'next/head';
 import axios from "axios";
 import swal from 'sweetalert';
-import {useState} from 'react';
+
+
 export const getServerSideProps = async() => {
     const data = await fetch("http://localhost:3000/api/patterns");
     const status = await data.json();
@@ -14,18 +15,17 @@ export const getServerSideProps = async() => {
 }
 
 
-import React from 'react'
+import React,{useState} from 'react';
 
 const viewpatterns = ({companies}) => {
-
-    const handleDelete = async(cid)=>{
-        const status = await axios.delete("http://localhost:3000/api/patterns",{deleteid:cid});
-        if(status.status == "Deleted")
-        {
-            swal("Deleted");
-        }
-        const updatedCompanies = companies.filter((user) => user.id !== cid);
-        companies = updatedCompanies;
+    const handleDelete = async(cname)=>{
+        console.log(cname);
+        const com = companies.filter((company)=> company.companyname != cname);
+        const status = await axios.delete(`http://localhost:3000/api/patterns/${cname}`,);
+        if(status)
+        swal(cname  + " Data Deleted", {
+            icon: "success",
+          });
     }
 
   return (
@@ -60,8 +60,8 @@ const viewpatterns = ({companies}) => {
                             <p className="text-xl text-center text-gray-500 hover:text-orange-600">{company.companyname}</p></Link>
                         </div>
                         <div className="grid lg:grid-cols-2 sm:grid-cols-1 mt-4">
-                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer">Edit</button>
-                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company._id)}}>Delete</button>
+                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
+                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
                         </div>
 
                     </div>

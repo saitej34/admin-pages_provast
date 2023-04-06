@@ -65,3 +65,27 @@ console.log("Data is " + companies[0].logo)
 }
 
 export default Pattern
+
+
+// import React from 'react'
+// import {useRouter} from 'next/router';
+// import AdminNavbar from '@/components/admin_navbar';
+// import Head from 'next/head';
+// export async function getServerSideProps({params}) {
+//     const str2 = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
+//     const data = await fetch(`http://localhost:3000/api/patterns/${str2}`);
+//     const status = await data.json();
+//     console.log(status)
+//     return {
+//       props: {companies : status}
+//     }
+//   }
+// const Pattern = () => {
+//     const router = useRouter()
+//     const { slug  } = router.query
+//   return (
+//     <div>Pattern = {slug}</div>
+//   )
+// }
+
+// export default Pattern
