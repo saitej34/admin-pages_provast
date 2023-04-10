@@ -18,6 +18,15 @@ export default async function handler(req,res){
                 return res.status(500).json({"Error":"500 Internal Server Error"})
             }
             break;
+        case "PUT":
+            console.log(company);
+            const result = await testdetails.updateOne({companyname : company}, req.body);
+            if(result)
+            {
+                return res.json(result)
+            }
+            return res.status(500).json({"Error" : "500 Internal Server Error"})
+            break
         case "DELETE":
             const status = await testdetails.deleteOne({companyname: company });
             return res.json(status);

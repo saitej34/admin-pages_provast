@@ -15,7 +15,6 @@ export async function getServerSideProps({params}) {
 const Pattern = ({companies}) => {
 const router = useRouter()
 const { slug  } = router.query
-console.log("Data is " + companies[0].logo)
   return (
     <div>
         <Head>   
