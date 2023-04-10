@@ -87,7 +87,6 @@ export default function handler({companies}){
                 <div className="input-type px-2 py-2">
                     <input type="text" name="overallcutoff" onChange={(e)=>{handleChange(e.target.name,e.target.value)}} defaultValue={compbasic.duration} className="border w-full px-5 py-3 focus:outline-none rounded-md focus:border-gray-500" placeholder="Overallcut Off"/>
                 </div>
-
                 </form>
            </div>
            {fdata.map((company)=>{
