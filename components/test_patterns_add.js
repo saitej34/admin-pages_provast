@@ -51,7 +51,7 @@ export default function Testpatternsadd(){
     }
     return (
     <div>
-        <form className="grid lg:grid-cols-3 md:grid-cols-2 pt-6 pb-3">
+        <form className="grid lg:grid-cols-3 md:grid-cols-1 mx-5">
 
         <div className="input-type px-2 py-2">
             <input type="text" name="companyname" onChange={setformData} className="border w-full px-5 py-3 focus:outline-none rounded-md focus:border-gray-500" placeholder="Company" required/>
@@ -76,7 +76,7 @@ export default function Testpatternsadd(){
         <h3 className=" text-2xl text-gray-500 my-6">Add Test Pattern Section - {count}</h3>
 
 
-        <form className="grid lg:grid-cols-3 md:grid-cols-2 pt-6 pb-3" onSubmit={handleSection}>
+        <form className="grid lg:grid-cols-3 md:grid-cols-2 pt-6 pb-3 mx-5" onSubmit={handleSection}>
 
         <div className="input-type px-2 py-2">
             <input type="text" name="section"  value={section} onChange={(e)=>{setsection(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Section" required/>

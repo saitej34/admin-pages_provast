@@ -45,8 +45,8 @@ const viewpatterns = ({companies}) => {
             </Head>
      <AdminNavbar></AdminNavbar>
     <div class="container mt-10">
-        <h1 className="text-3xl text-center">Test Patterns</h1>  
-        <div className="grid lg:grid-cols-6 md:grid-cols-2 pt-6 pb-3">
+        <h1 className="text-3xl text-center mb-5">Test Patterns</h1>  <br/><br/>
+        <div className="mx-5 mt-3 grid grid-cols-1 gap-y-8 gap-x-4 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-8 my-3">
             {companies.map((company)=>{
                 return (
                     // <div className="flex-col justify-between mx-5 my-5 px-2 py-3 border-gray-500 shadow-lg">
@@ -67,24 +67,24 @@ const viewpatterns = ({companies}) => {
                     //     </div>
 
                     // </div>
-                    <div className="flex-col justify-around mx-5 my-3 px-2 py-2 border-gray-400 shadow-md">
-                        <div className="w-full h-[150px]">
-                              <img
-                                src={company.logo}
-                                class="h-auto max-w-full"
-                                alt="..." />
+                        <div className="w-full rounded shadow py-4 flex flex-col justify-between">
+                            <div className="bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+                                <img src={company.logo}
+                                     className="h-auto max-w-full"
+                                />
+                            </div>
+                            <div className="mt-4 flex justify-center">
+                            <Link href={`/admin/viewpatterns/${company.companyname}`}>
+                                <h3 className="text-lg font-semibold text-gray-700">
+                                    {company.companyname}
+                                </h3>
+                            </Link>
+                            </div>
+                            <div className="mt-3 flex justify-center">
+                                <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
+                                <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
+                            </div>
                         </div>
-                        <div className="py-2 cursor-pointer">
-                               <Link href={`/admin/viewpatterns/${company.companyname}`}>
-                               <p className="text-xl text-center text-gray-500 hover:text-orange-600">{company.companyname}</p></Link>
-                        </div>
-                        <div className="grid lg:grid-cols-2 sm:grid-cols-1 mt-4 gap-3">
-                               <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
-                               <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
-                         </div>
-
-
-                    </div>
                 )
             })}
         </div>          
