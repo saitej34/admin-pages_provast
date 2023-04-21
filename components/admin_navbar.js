@@ -1,6 +1,6 @@
 export default function AdminNavbar(){
     return (
-        <div class="container flex justify-between bg-gray-100 pb-3">
+        <div class=" flex justify-between bg-gray-100 pb-3">
                <div className="mx-5 mt-4">
                    <img src="https://www.provast.in/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdj7nomqfd%2Fimage%2Fupload%2Fv1652909540%2Fpvast_B_fpwhlu.png&w=1920&q=75" width="170" height="170"/>
                </div>

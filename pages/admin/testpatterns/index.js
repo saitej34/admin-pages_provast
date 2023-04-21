@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <main>
           <AdminNavbar></AdminNavbar>
-          <div class="container">
+          <div class="">
             <h1 className="text-gray-600 text-center my-6 text-2xl">Add Company Test Patterns</h1>
               <Testpatternsadd></Testpatternsadd>
           </div>

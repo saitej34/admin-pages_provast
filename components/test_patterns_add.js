@@ -51,7 +51,7 @@ export default function Testpatternsadd(){
     }
     return (
     <div>
-        <form className="grid lg:grid-cols-3 md:grid-cols-1 mx-5">
+        <form className="grid lg:grid-cols-3 md:grid-cols-2 mx-5">
 
         <div className="input-type px-2 py-2">
             <input type="text" name="companyname" onChange={setformData} className="border w-full px-5 py-3 focus:outline-none rounded-md focus:border-gray-500" placeholder="Company" required/>
@@ -73,7 +73,7 @@ export default function Testpatternsadd(){
         </div>
         
         </form>
-        <h3 className=" text-2xl text-gray-500 my-6">Add Test Pattern Section - {count}</h3>
+        <h3 className=" text-2xl text-gray-500 my-6 text-center">Add Test Pattern Section - {count}</h3>
 
 
         <form className="grid lg:grid-cols-3 md:grid-cols-2 pt-6 pb-3 mx-5" onSubmit={handleSection}>
@@ -87,10 +87,10 @@ export default function Testpatternsadd(){
         <div className="input-type px-2 py-2">
             <input type="text" name="noofques"  value={noofques} onChange={(e)=>{setques(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="No of Questions" required/>
         </div>
-        <div className="input-type px-3 py-2 mx-auto">
+        <div className="input-type px-3 py-2 w-full">
             <select
                 onChange={(e)=>{setdiffi(e.target.value)}}
-                className="browser-default custom-select border py-3 px-5">
+                className="browser-default custom-select border py-3 w-full rounded px-5">
                 <option selected disabled>Difficulty</option>
                 <option value="Easy" className="hover:bg-orange-200">Easy</option>
                 <option value="Medium" className="hover:bg-orange-200">Medium</option>
