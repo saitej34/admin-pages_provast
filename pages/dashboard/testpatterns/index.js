@@ -27,7 +27,10 @@ const viewpatterns = ({companies}) => {
                         <img
                             src={company.logo}
                             class="h-auto max-w-full"
-                            alt="..." />
+                            alt="..." 
+                            width={300}
+                            height={250} 
+                        />
                         <br/>
                         <div className="py-2 cursor-pointer">
                             <Link href={`/admin/viewpatterns/${company.companyname}`}>

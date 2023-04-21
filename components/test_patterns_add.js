@@ -87,8 +87,16 @@ export default function Testpatternsadd(){
         <div className="input-type px-2 py-2">
             <input type="text" name="noofques"  value={noofques} onChange={(e)=>{setques(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="No of Questions" required/>
         </div>
-        <div className="input-type px-2 py-2">
-            <input type="text" name="difficulty"  value={difficulty} onChange={(e)=>{setdiffi(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Difficulty" required/>
+        <div className="input-type px-3 py-2 mx-auto">
+            <select
+                onChange={(e)=>{setdiffi(e.target.value)}}
+                className="browser-default custom-select border py-3 px-5">
+                <option selected disabled>Difficulty</option>
+                <option value="Easy" className="hover:bg-orange-200">Easy</option>
+                <option value="Medium" className="hover:bg-orange-200">Medium</option>
+                <option value="Hard" className="hover:bg-orange-200">Hard</option>
+
+            </select>
         </div>
         <div className="input-type px-2 py-2">
             <input type="text" name="duration"  value={duration} onChange={(e)=>{setduration(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Duration" required/>

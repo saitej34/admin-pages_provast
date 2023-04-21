@@ -18,22 +18,24 @@ const { slug  } = router.query
   return (
     <div>
         <Head>   
-                <title>Test Pattern</title>
+                <title>Test Patterns</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta charset="UTF-8" />
                 <meta name="description"
-                    content="NextJS Head component" />
+                    content="Provast Everthing You Need" />
                 <meta name="keywords"
-                    content="HTML, CSS, JavaScript, NextJS" />
-                <meta name="author"
-                    content="Amar Madhekar" />
+                    content="Provast" />
+                <meta name="Provast"
+                    content="Provast" />
                 <meta name="viewport"
                     content="width=device-width, initial-scale=1.0" />
             </Head>
         <AdminNavbar></AdminNavbar>
-        <div class="container my-6">
-            <b><h1 className="text-center text-gray-800 my-10 text-2xl">{companies[0].companyname} Test Pattern</h1></b>
-            <p className='text-center'>All the details given in the table are a rough estimate. The number of questions and time duration depends and may vary on the respective companies for which the exam is being conducted.</p>
+        <div class="container my-6 text-center">
+            <div className="text-center mx-auto">
+                <b><h1 className="text-center text-gray-800 my-10 text-2xl">{companies[0].companyname} Test Pattern</h1></b>
+                <p className='text-center'>All the details given in the table are a rough estimate. The number of questions and time duration depends and may vary on the respective companies for which the exam is being conducted.</p>
+            </div>
             <div className="text-center mt-7">
             <table className="mx-auto w-3/4 text-sm text-center text-gray-900 dark:text-white rounded">
                 <thead className="text-xs text-gray-900 uppercase bg-gray-50">

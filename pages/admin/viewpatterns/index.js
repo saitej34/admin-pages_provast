@@ -49,20 +49,40 @@ const viewpatterns = ({companies}) => {
         <div className="grid lg:grid-cols-6 md:grid-cols-2 pt-6 pb-3">
             {companies.map((company)=>{
                 return (
-                    <div className="flex-col justify-between mx-5 my-5 px-2 py-3 border-gray-500 shadow-lg">
-                        <img
-                            src={company.logo}
-                            class="h-auto max-w-full"
-                            alt="..." />
-                        <br/>
+                    // <div className="flex-col justify-between mx-5 my-5 px-2 py-3 border-gray-500 shadow-lg">
+                    //     <div className="w-full">
+                    //         <img
+                    //             src={company.logo}
+                    //             class="h-auto max-w-full"
+                    //             alt="..." />
+                    //     </div>
+                    //     <br/>
+                    //     <div className="py-2 cursor-pointer">
+                    //         <Link href={`/admin/viewpatterns/${company.companyname}`}>
+                    //         <p className="text-xl text-center text-gray-500 hover:text-orange-600">{company.companyname}</p></Link>
+                    //     </div>
+                    //     <div className="grid lg:grid-cols-2 sm:grid-cols-1 mt-4 gap-2">
+                    //         <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
+                    //         <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
+                    //     </div>
+
+                    // </div>
+                    <div className="flex-col justify-around mx-5 my-3 px-2 py-2 border-gray-400 shadow-md">
+                        <div className="w-full h-[150px]">
+                              <img
+                                src={company.logo}
+                                class="h-auto max-w-full"
+                                alt="..." />
+                        </div>
                         <div className="py-2 cursor-pointer">
-                            <Link href={`/admin/viewpatterns/${company.companyname}`}>
-                            <p className="text-xl text-center text-gray-500 hover:text-orange-600">{company.companyname}</p></Link>
+                               <Link href={`/admin/viewpatterns/${company.companyname}`}>
+                               <p className="text-xl text-center text-gray-500 hover:text-orange-600">{company.companyname}</p></Link>
                         </div>
-                        <div className="grid lg:grid-cols-2 sm:grid-cols-1 mt-4">
-                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
-                            <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
-                        </div>
+                        <div className="grid lg:grid-cols-2 sm:grid-cols-1 mt-4 gap-3">
+                               <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer"><Link href={`/admin/viewpatterns/edit/${company.companyname}`}>Edit</Link></button>
+                               <button className="px-2 py-1 border rounded border-gray-400 text-gray-800 bg-gray-100 mx-2 cursor-pointer" onClick={(e)=>{handleDelete(company.companyname)}}>Delete</button>
+                         </div>
+
 
                     </div>
                 )

@@ -2,6 +2,7 @@ import AdminNavbar from '@/components/admin_navbar';
 import {useState} from 'react';
 import axios from 'axios';
 import Head from 'next/link';
+import swal from 'sweetalert'
 export async function getServerSideProps({params}) {
     const str2 = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
     const data = await fetch(`http://localhost:3000/api/patterns/${str2}`);
@@ -56,9 +57,10 @@ export default function handler({companies}){
         {
             if(fdata[i].section == section_val)
             {
-                fdata.splice(i,1);
+                delete fdata[i];
             }
         }
+        console.log(fdata);
     }
 
 
@@ -68,6 +70,7 @@ export default function handler({companies}){
        console.log(formData);
        const result = await axios.put(`http://localhost:3000/api/patterns/${companies[0].companyname}`,formData);
        console.log("Details Updated");
+       swal("Deatils Updated")
    }
 
     const handleSection = (e) =>{
@@ -93,7 +96,6 @@ export default function handler({companies}){
         <>
            <div>
               <AdminNavbar></AdminNavbar>
-              
            </div>
            <div>
            <h1 className="text-center text-2xl my-6">Update {companies[0].companyname} Test Patterns</h1>
@@ -119,7 +121,7 @@ export default function handler({companies}){
 
                 </form>
            </div>
-           {companies[0].testsections.map((company)=>{
+           {fdata.map((company)=>{
                return (
                 <>
                 <h1 className="text-center text-xl my-6">{company.section}</h1>
@@ -135,7 +137,17 @@ export default function handler({companies}){
                     <input type="text" name="noofques"  defaultValue={company.noofques} onChange={(e)=>{setfdata(e.target.value,company._id,e.target.name)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="No of Questions"/>
                 </div>
                 <div className="input-type px-2 py-2">
-                    <input type="text" name="difficulty"  defaultValue={company.difficulty} onChange={(e)=>{setfdata(e.target.value,company._id,e.target.name)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Difficulty"/>
+                <select
+                    name="difficulty"
+                    defaultValue={company.difficulty}
+                    onChange={(e)=>{setfdata(e.target.value,company._id,e.target.name)}}
+                    className="browser-default custom-select border py-3 px-5 mx-auto">
+                    <option selected disabled>Difficulty</option>
+                    <option value="Easy" className="hover:bg-orange-200">Easy</option>
+                    <option value="Medium" className="hover:bg-orange-200">Medium</option>
+                    <option value="Hard" className="hover:bg-orange-200">Hard</option>
+
+                </select>
                 </div>
                 <div className="input-type px-2 py-2">
                     <input type="text" name="duration"  defaultValue={company.duration} onChange={(e)=>{setfdata(e.target.value,company._id,e.target.name)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Duration"/>
@@ -163,7 +175,15 @@ export default function handler({companies}){
                     <input type="text" name="noofques"  value={noofques} onChange={(e)=>{setques(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="No of Questions" required/>
                 </div>
                 <div className="input-type px-2 py-2">
-                    <input type="text" name="difficulty"  value={difficulty} onChange={(e)=>{setdiffi(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Difficulty" required/>
+                    <select
+                        onChange={(e)=>{setdiffi(e.target.value)}}
+                        className="browser-default custom-select border py-3 px-5">
+                        <option selected disabled>Difficulty</option>
+                        <option value="Easy" className="hover:bg-orange-200">Easy</option>
+                        <option value="Medium" className="hover:bg-orange-200">Medium</option>
+                        <option value="Hard" className="hover:bg-orange-200">Hard</option>
+
+                    </select>
                 </div>
                 <div className="input-type px-2 py-2">
                     <input type="text" name="duration"  value={duration} onChange={(e)=>{setduration(e.target.value)}} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Duration" required/>

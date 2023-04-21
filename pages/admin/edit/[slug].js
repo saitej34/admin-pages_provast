@@ -105,7 +105,17 @@ export default function handler({companies}){
                     <input type="text" name="noofques" defaultValue={company.noofques} onChange={(e)=>handleSections(e.target.name,e.target.value,fdata.indexOf(company))} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="No of Questions"/>
                 </div>
                 <div className="input-type px-2 py-2">
-                    <input type="text" name="difficulty" defaultValue={company.difficulty} onChange={(e)=>handleSections(e.target.name,e.target.value,fdata.indexOf(company))} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Difficulty"/>
+                <select
+                    name="difficulty"
+                    defaultValue={company.difficulty}
+                    onChange={(e)=>{handleSections(e.target.name,e.target.value,fdata.indexOf(company))}}
+                    className="browser-default custom-select border py-3 px-5">
+                    <option selected disabled>Difficulty</option>
+                    <option value="Easy" className="hover:bg-orange-200">Easy</option>
+                    <option value="Medium" className="hover:bg-orange-200">Medium</option>
+                    <option value="Hard" className="hover:bg-orange-200">Hard</option>
+
+                </select>
                 </div>
                 <div className="input-type px-2 py-2">
                     <input type="text" name="duration" defaultValue={company.duration} onChange={(e)=>handleSections(e.target.name,e.target.value,fdata.indexOf(company))} className="border w-full px-5 py-3 focus:border-gray-500 rounded-md" placeholder="Duration"/>

@@ -13,7 +13,7 @@ export default function AdminNavbar(){
                <div className="flex justify-between mr-6">
                    <button className="text-gray-400 px-3 border-gray-400 mx-4 hover:text-gray-500">Test</button>
                    <button  className="text-gray-600 px-3 border-gray-400 mx-4 hover:text-gray-700" >Test</button>
-            </div>
+               </div>
         </div>
     )
 }
